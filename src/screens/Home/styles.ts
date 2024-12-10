@@ -2,12 +2,18 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     topBar: {
-        padding: 30,
+        margin: 30,
         alignItems: 'center',
     },
     logo:{
         height: 47,
         width: 170,
+    },
+    form: {
+        width: '100%',
+        flexDirection: "row",
+        marginBottom: 10,
+        justifyContent: 'space-between'
     },
     input: {
         flex: 1,
@@ -18,14 +24,10 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         margin: 5
     },
-    container: {
-        width: '100%',
-        flexDirection: "row"
-    },
     addButton: {
         backgroundColor: '#1E6F9F',
-        width: 50,
-        height: 50,
+        width: 60,
+        height: 60,
         borderRadius: 5,
         justifyContent: 'center',
         margin: 5
@@ -34,5 +36,38 @@ export const styles = StyleSheet.create({
        fontSize: 16,
        color: '#fff',
        textAlign: 'center'
-   }
+    },
+    textPurple: {
+        color: '#5E60CE',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    textBlue : {
+        color: '#1E6F9F',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    badge:{
+        backgroundColor: '#262626',
+        height: 20,
+        width: 25,
+        borderRadius: 50,
+        justifyContent: 'center',
+        marginHorizontal: 10
+    },
+    countText: {
+        fontSize: 12,
+        color: '#F2F2F2',
+        textAlign: 'center'
+    },
+    boxCount:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        margin: 5
+    },
+    line:{
+        backgroundColor: '#333333',
+        height: 2,
+        margin: 10
+    }
 })
