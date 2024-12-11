@@ -69,5 +69,26 @@ export const styles = StyleSheet.create({
         backgroundColor: '#333333',
         height: 2,
         margin: 10
+    },
+    listTodosBox: {
+        flex: 1,
+        alignItems: 'center',
+        margin: 10,
+    },
+    clipboard:{
+        height: 70,
+        width: 53,
+        margin: 10
+    },
+    primaryEmptyText: {
+        fontWeight: 'bold',
+        color: '#808080',
+        fontSize: 14,
+        textAlign: 'center'
+    },
+    secondaryEmptyText:{
+        color: '#808080',
+        fontSize: 14,
+        textAlign: 'center'
     }
 })
