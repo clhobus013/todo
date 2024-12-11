@@ -7,6 +7,7 @@ type Props = {
     todo: Todo,
     index: number
     onRemove: () => void
+    onCheck: () => void
 }
 
 export function ItemTodo(props: Props) {
@@ -15,6 +16,8 @@ export function ItemTodo(props: Props) {
         <View style={styles.container}>
             <ExpoCheckbox
                 value={props.todo._isCompleted}
+                onValueChange={props.onCheck}
+                color={props.todo._isCompleted ? '#5E60CE' : '#4EA8DE'}
             />
             <Text style={styles.description}>{props.todo._description}</Text>
             <TouchableOpacity onPress={props.onRemove}>

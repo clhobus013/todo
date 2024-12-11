@@ -18,7 +18,25 @@ export function Home() {
         console.log("indice a ser removido : ", description)
         setTodos(prevState => prevState.filter(todo => todo._description !== description))
     }
-    
+
+    function handleCheckTodo(description: string) {
+        console.log("Clicou checkbox: ", description)
+        setTodos(prevState => prevState.map(todo => {
+            if(todo._description == description){
+                todo._isCompleted = !todo._isCompleted
+            } 
+            return todo
+        }))  
+    }
+
+    function countCompletedTodos(){
+        return todos.filter(todo => todo._isCompleted).length
+    }
+
+    function countPendingTodos(){
+        return todos.filter(todo => !todo._isCompleted).length
+    }
+
     return (
         <View>
             <View style={styles.topBar}>
@@ -40,12 +58,12 @@ export function Home() {
             <View style={styles.boxCount}>
                 <View style={styles.boxCount}>
                     <Text style={styles.textBlue}>Criadas</Text>
-                    <View style={styles.badge}><Text style={styles.countText}>0</Text></View>
+                    <View style={styles.badge}><Text style={styles.countText}>{countPendingTodos()}</Text></View>
 
                 </View>
                 <View style={styles.boxCount}>
                     <Text style={styles.textPurple}>Concluidas</Text>
-                    <View style={styles.badge}><Text  style={styles.countText}>0</Text></View>
+                    <View style={styles.badge}><Text style={styles.countText}>{countCompletedTodos()}</Text></View>
                 </View>
 
             </View>
@@ -55,7 +73,7 @@ export function Home() {
                 data={todos}
                 keyExtractor={(item) => item._description}
                 renderItem={({item, index}) => (
-                    <ItemTodo key={item._description} todo={item} index={index} onRemove={() => handleRemoveTodo(item._description)}></ItemTodo>
+                    <ItemTodo key={item._description} todo={item} index={index} onRemove={() => handleRemoveTodo(item._description)} onCheck={()=> handleCheckTodo(item._description)}></ItemTodo>
                 )}
                 ListEmptyComponent={() => (
                     <View style={styles.listTodosBox}>
